@@ -1,0 +1,34 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "https://7f0548f6b28a1758d9bf7be630d36cb4.artifacts.cloudflare.net/git/prod/LE2gU9KVWekKeJiMqrDLkR.git",
+    "expiration": "2026-08-13T11:13:41.940Z",
+    "token": "art_v1_edd5890bf160ea9dbc826d31adf6af82acaafad6?expires=1786619621",
+    "backend": "GIT_BACKEND_ARTIFACTS"
+  },
+  "name": "luz-negra",
+  "path": "/home/ubuntu/luz-negra",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "Kmkk5C4f4VNG424cbiyRXT",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "MXtrYYiomBuhUtzFFhHfYy",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Maria Helena Lima",
+    "OWNER_OPEN_ID": "4NEeEUYrmRmYV35qt4QqfX",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "56787ef4-426a-4b54-b708-2efba9be0065",
+    "VITE_APP_ID": "LE2gU9KVWekKeJiMqrDLkR",
+    "VITE_APP_LOGO": "https://files.manuscdn.com/user_upload_by_module/web_dev_logo/310519663725900251/VnUKjhedDSUtqaYv.png",
+    "VITE_APP_TITLE": "Luz Negra — A luz que revela o invisível",
+    "VITE_FRONTEND_FORGE_API_KEY": "45yqp9WBbyZZbF8dMWeNt4",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
