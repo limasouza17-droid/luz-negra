@@ -17,25 +17,6 @@ const objects = [
   { name: "Papel", icon: "▤", result: "Pouca fluorescência", detail: "A celulose pode emitir um brilho discreto, dependendo do tratamento." },
   { name: "Tecido", icon: "▦", result: "Depende do tecido", detail: "Fibras e agentes branqueadores mudam bastante a resposta sob UV." },
   { name: "Cédula", icon: "▱", result: "Elementos de segurança", detail: "Algumas marcas são desenhadas para aparecer somente sob UV." },
-/* Design: Arquivo de Campo UV — narrativa editorial científica, layout assimétrico, preto texturizado, violeta ultravioleta e âmbar de evidência. */
-import { useMemo, useState } from "react";
-import { ArrowDown, ArrowRight, Beaker, Check, ChevronRight, Eye, FlaskConical, Gauge, Lightbulb, LockKeyhole, MoveDown, Sparkles, Sun, Zap } from "lucide-react";
-
-const spectrum = [
-  { label: "Rádio", color: "#8b5cf6", note: "Ondas longas usadas em comunicação." },
-  { label: "Micro-ondas", color: "#6366f1", note: "Transportam energia e aquecem moléculas de água." },
-  { label: "Infravermelho", color: "#ef4444", note: "Associado à radiação térmica." },
-  { label: "Visível", color: "#f4c95d", note: "A pequena faixa que nossos olhos detectam." },
-  { label: "Ultravioleta", color: "#c026d3", note: "Comprimento de onda menor que o violeta visível." },
-  { label: "Raios X", color: "#38bdf8", note: "Alta energia, capaz de atravessar tecidos." },
-  { label: "Gama", color: "#f8fafc", note: "As ondas mais energéticas do espectro." },
-];
-
-const objects = [
-  { name: "Marca-texto", icon: "▰", result: "Fluorescente", detail: "Pigmentos fluorescentes absorvem UV e devolvem luz visível intensa." },
-  { name: "Papel", icon: "▤", result: "Pouca fluorescência", detail: "A celulose pode emitir um brilho discreto, dependendo do tratamento." },
-  { name: "Tecido", icon: "▦", result: "Depende do tecido", detail: "Fibras e agentes branqueadores mudam bastante a resposta sob UV." },
-  { name: "Cédula", icon: "▱", result: "Elementos de segurança", detail: "Algumas marcas são desenhadas para aparecer somente sob UV." },
 ];
 
 const quiz = [
@@ -85,20 +66,6 @@ function Home() {
   const nextQuiz = () => { setQuizIndex(i => (i + 1) % quiz.length); setQuizAnswer(null); };
 
   return <main className="site-shell">
-    <section className="section identification-section">
-      <SectionMarker number="01" label="Identificação do trabalho" />
-      <div className="split-heading">
-        <div>
-          <h2>Projeto <i>Luz Negra.</i></h2>
-          <p>Investigação sobre luz negra, radiação ultravioleta e fluorescência.</p>
-        </div>
-        <div>
-          <p><strong>Alunas</strong><br />Maria Helena de L. S.<br />Lavinya Maria P.<br />Maria Clara F.<br />Isabela E. S.<br />Gabrielly Victória M.<br />Bianca M. S.</p>
-          <p><strong>Turma</strong><br />3º ano do Ensino Médio B</p>
-          <p><strong>Professora</strong><br />Talita Freire</p>
-        </div>
-      </div>
-    </section>
     <div className="reading-progress" style={{ width: `${progress}%` }} />
     <header className="topbar">
       <a href="#top" className="brand"><img src="/manus-storage/luz-negra-mark_7ecfea1a.png" alt="" /><span>LUZ<br /><em>NEGRA</em></span></a>
@@ -118,7 +85,7 @@ function Home() {
         <p className="hero-lede">Por que alguns materiais brilham quando expostos à luz negra?</p>
         <a href="#investigacao" className="primary-link">começar a investigação <ArrowRight size={17} /></a>
       </div>
-      <div className="hero-footer"><span>ARRASTE A CORDA</span><span>SCROLL PARA INVESTIGAR ↓</span><span>01 / 14</span></div>
+      <div className="hero-footer"><span>ARRASTE A CORDA</span><span>SCROLL PARA INVESTIGAR ↓</span><span>01 / 13</span></div>
     </section>
 
     <section id="investigacao" className="section spectrum-section">
@@ -169,26 +136,7 @@ function Home() {
 
     <section className="section quiz-section"><SectionMarker number="12–13" label="Mito ou verdade" /><div className="quiz-layout"><div><span className="mono">VOCÊ ESTAVA PRESTANDO ATENÇÃO?</span><h2>Uma última<br /><i>verificação.</i></h2><p>Responda cinco perguntas e descubra quantas evidências ficaram acesas.</p><div className="score"><span>{String(quizIndex + 1).padStart(2, "0")} / 05</span><b>{score} acertos</b></div></div><div className="quiz-card"><span className="mono">PERGUNTA {String(quizIndex + 1).padStart(2, "0")}</span><h3>{currentQuiz.q}</h3><div className="quiz-options">{currentQuiz.options.map((o, i) => <button key={o} className={quizAnswer !== null ? (i === currentQuiz.answer ? "correct" : i === quizAnswer ? "wrong" : "") : ""} onClick={() => answerQuiz(i)}>{o}<span>{quizAnswer !== null && i === currentQuiz.answer ? <Check size={16} /> : "→"}</span></button>)}</div>{quizAnswer !== null && <div className="quiz-feedback"><strong>{quizAnswer === currentQuiz.answer ? "✓ leitura correta" : "× leitura incorreta"}</strong><p>{currentQuiz.explain}</p><button onClick={nextQuiz}>{quizIndex === quiz.length - 1 ? "refazer investigação" : "próxima pergunta"} <ArrowRight size={15} /></button></div>}</div></div></section>
 
-    <section className="section references-section">
-      <SectionMarker number="14" label="Referências" />
-      <div className="split-heading"><h2>Fontes para <i>continuar investigando.</i></h2><p>Sites institucionais e materiais educacionais consultados sobre luz negra, radiação ultravioleta, fluorescência e espectro eletromagnético.</p></div>
-      <ol style={{ display: "grid", gap: "16px", paddingLeft: "24px" }}>
-        <li><a href="https://science.nasa.gov/ems/10_ultravioletwaves/" target="_blank" rel="noreferrer"><strong>NASA — Ultraviolet Waves</strong></a></li>
-        <li><a href="https://imagine.gsfc.nasa.gov/science/toolbox/emspectrum1.html" target="_blank" rel="noreferrer"><strong>NASA — Electromagnetic Spectrum: Introduction</strong></a></li>
-        <li><a href="https://www.jpl.nasa.gov/edu/resources/lesson-plan/using-light-to-study-planets/" target="_blank" rel="noreferrer"><strong>NASA/JPL Education — Using Light to Study Planets</strong></a></li>
-        <li><a href="https://science.nasa.gov/learn/heat/big-ideas/big-idea-2-3/" target="_blank" rel="noreferrer"><strong>NASA Science — The Sun and the electromagnetic spectrum</strong></a></li>
-        <li><a href="https://imagine.gsfc.nasa.gov/educators/programs/au/docs/sessions/Session_4.pdf" target="_blank" rel="noreferrer"><strong>NASA — Invisible Light</strong></a></li>
-        <li><a href="https://www.britannica.com/science/electromagnetic-radiation/Ultraviolet-radiation" target="_blank" rel="noreferrer"><strong>Encyclopaedia Britannica — Ultraviolet radiation</strong></a></li>
-        <li><a href="https://www.diaadiaeducacao.pr.gov.br/portals/roteiropedagogico/publicacao/3599_Riscos_a_saude_da_radiacao_ultravioleta.PDF" target="_blank" rel="noreferrer"><strong>Dia a Dia Educação — Riscos à Saúde da Radiação Ultravioleta</strong></a></li>
-        <li><a href="https://portal.educacao.pe.gov.br/wp-content/uploads/2023/08/Efeitos-da-Radiacao-no-Organismo-Unidade-Curricular-Terminada.pdf" target="_blank" rel="noreferrer"><strong>Secretaria da Educação de Pernambuco — Efeitos da radiação no organismo</strong></a></li>
-        <li><a href="https://educacaopublica.cecierj.edu.br/artigos/2/1/da-pele-morena-ao-branco-total" target="_blank" rel="noreferrer"><strong>Revista Educação Pública — Da pele morena ao branco total</strong></a></li>
-        <li><a href="http://repositorio.utfpr.edu.br/jspui/bitstream/1/4988/1/praticasinterdisciplinaresfenomenosopticos_.pdf" target="_blank" rel="noreferrer"><strong>UTFPR — Práticas interdisciplinares e fenômenos ópticos</strong></a></li>
-        <li><a href="https://www.ifsc.edu.br/documents/d/campus-jaragua-do-sul/4b-final-extracao-e-caracterizacao-de-pigmentos-de-marcadores-para-quadro-branco-e-marcadores-para-retroprojetor" target="_blank" rel="noreferrer"><strong>IFSC — Extração e caracterização de pigmentos</strong></a></li>
-        <li><a href="https://publicacoes.unigranrio.edu.br/recm/article/download/6649/4156" target="_blank" rel="noreferrer"><strong>UniGranRio — Sequência didática CTS: A luz dos elementos</strong></a></li>
-      </ol>
-    </section>
-
-    <footer className="footer"><img src="/manus-storage/luz-negra-mark_7ecfea1a.png" alt="" /><div><b>LUZ NEGRA</b><span>A luz que revela o invisível.</span></div><span className="mono">FIM DO ARQUIVO · 14 / 14</span></footer>
+    <footer className="footer"><img src="/manus-storage/luz-negra-mark_7ecfea1a.png" alt="" /><div><b>LUZ NEGRA</b><span>A luz que revela o invisível.</span></div><span className="mono">FIM DO ARQUIVO · 13 / 13</span></footer>
   </main>;
 }
 
