@@ -63,6 +63,13 @@
       }
     });
     document.querySelectorAll(".footer .mono").forEach(function (el) { el.textContent = "FIM DO ARQUIVO · 14 / 14"; });
+    document.querySelectorAll("section").forEach(function (section) {
+      var heading = section.querySelector("h2");
+      if (heading && (heading.textContent || "").indexOf("Hora de experimentar") !== -1) {
+        var paragraph = section.querySelector(".split-heading p") || section.querySelector("p");
+        if (paragraph) paragraph.textContent = "Vamos ativar a luz UV e experimentar.";
+      }
+    });
     if (found >= 2 || attempts++ > 30) clearInterval(timer);
   }, 250);
 })();
