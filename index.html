@@ -38,5 +38,32 @@
   </ol>
 </section>
 <script type="module" src="./assets/index-N3PQsyC4.js"></script>
+<script>
+(function () {
+  var attempts = 0;
+  var timer = setInterval(function () {
+    var found = 0;
+    document.querySelectorAll("figure").forEach(function (figure) {
+      var text = figure.textContent || "";
+      if (text.indexOf("EVIDÊNCIA 09") !== -1) {
+        found++;
+        var image = figure.querySelector("img");
+        if (image) { image.src = "./assets/evidencia-09.jpg"; image.alt = "Marca-textos fluorescentes observados sob luz ultravioleta"; }
+        var caption = figure.querySelector("figcaption");
+        if (caption) caption.innerHTML = "<span>FOTO REAL · EVIDÊNCIA 09</span><small>Marca-textos fluorescentes observados sob luz UV</small>";
+      }
+      if (text.indexOf("FOTO 02 · REGISTRO DA EQUIPE") !== -1) {
+        found++;
+        var image2 = figure.querySelector("img");
+        if (image2) { image2.src = "./assets/evidencia-12.jpg"; image2.alt = "Escrita fluorescente observada sob luz ultravioleta"; }
+        var caption2 = figure.querySelector("figcaption");
+        if (caption2) caption2.innerHTML = "<span>FOTO REAL · REGISTRO DA EQUIPE</span><small>Escrita fluorescente observada sob luz UV</small>";
+      }
+    });
+    document.querySelectorAll(".footer .mono").forEach(function (el) { el.textContent = "FIM DO ARQUIVO · 14 / 14"; });
+    if (found >= 2 || attempts++ > 30) clearInterval(timer);
+  }, 250);
+})();
+</script>
 </body>
 </html>
