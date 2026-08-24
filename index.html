@@ -43,6 +43,7 @@
   var attempts = 0;
   var timer = setInterval(function () {
     var found = 0;
+    var page7Found = false;
     document.querySelectorAll("figure").forEach(function (figure) {
       var text = figure.textContent || "";
       if (text.indexOf("EVIDÊNCIA 09") !== -1) {
@@ -66,11 +67,12 @@
     document.querySelectorAll("section").forEach(function (section) {
       var heading = section.querySelector("h2");
       if (heading && (heading.textContent || "").indexOf("Hora de experimentar") !== -1) {
+        page7Found = true;
         var paragraph = section.querySelector(".split-heading p") || section.querySelector("p");
         if (paragraph) paragraph.textContent = "Vamos ativar a luz UV e experimentar.";
       }
     });
-    if (found >= 2 || attempts++ > 30) clearInterval(timer);
+    if (found >= 2 && page7Found || attempts++ > 30) clearInterval(timer);
   }, 250);
 })();
 </script>
