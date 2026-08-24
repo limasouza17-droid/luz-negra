@@ -54,6 +54,8 @@
       }
       if (text.indexOf("FOTO 02 · REGISTRO DA EQUIPE") !== -1) {
         found++;
+        var section = figure.closest("section");
+        if (section) { var paragraphs = section.querySelectorAll("p"); if (paragraphs.length) paragraphs[paragraphs.length - 1].textContent = "Registro fotográfico da equipe: escrita fluorescente observada sob luz UV, evidenciando a resposta de materiais à radiação ultravioleta."; }
         var image2 = figure.querySelector("img");
         if (image2) { image2.src = "./assets/evidencia-12.jpg"; image2.alt = "Escrita fluorescente observada sob luz ultravioleta"; }
         var caption2 = figure.querySelector("figcaption");
